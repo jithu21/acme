@@ -1,27 +1,54 @@
-<div class="" data-ng-controller="AnalyticsController">
-  <h1>Example view from your new awesome package</h1>
-  <h2>Package: {{package.name}}</h2>
-  <ol>
-    <li>
-      <a href="analytics/example/anyone">Server route that anyone can access</a>
-    </li>
-    <li>
-      <a href="analytics/example/auth">Server route that requires authentication</a>
-    </li>
-    <li>
-      <a href="analytics/example/admin">Server route that requires admin user</a>
-    </li>
-    <li>
-      <a href="analytics/example/render">Raw Html rendering example from using swig</a>
-    </li>
-  </ol>
-  <h3><img src="/analytics/assets/img/logo.png" /></h3>
-  </br>
-  <p class="alert alert-info">You can find your package in /packages/analytics</p>
-  </br>
-  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/analytics</p>
-  </br>
-  <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
-  </br>
-</div>
 
+<section class="content" ng-controller="IndexController" ng-show="global.authenticated">
+  <div class="" ng-controller="Geography">
+    <p align="right">
+      <button class="btn btn-primary btn-sm" name="date_range_view" id="date_picker" value="date_range_view">
+        {{ date_range_view }}
+        <i class="fa fa-caret-down"></i>
+      </button>
+    </p>
+    <div class="row" ng-show="set_date">
+           <span>
+              <div class="col-xs-12">
+                <div class="callout callout-info">
+                  <h4>Set Date <a hresf="/"> Click here to set the date in dashboard </a></h4>
+                </div>
+              </div>
+            </span>
+    </div>
+    <div class="row" ng-show="table_show">
+           <span>
+              <div class="col-xs-12">
+                <div class="callout callout-info">
+                  <h4>No data found for the selected period </h4>
+                </div>
+              </div>
+            </span>
+    </div>
+
+    <div class="box-body no-padding" data-ng-show="report">
+  <span>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-body table-responsive">
+            <div class="dataTables_wrapper form-inline" role="grid">
+              <div class="row">
+                <div class="col-xs-6"></div>
+                <div class="col-xs-6"></div>
+              </div>
+              <div  cg-busy="{promise:mask, templateUrl:'/system/views/mask.html',backdrop:true,delay:300,minDuration:1000}">
+                <table  tr-ng-grid='' page-items="15" current-page="currentPage" enable-filtering="false"
+                        enable-sorting="false"
+                        items="report_records" total-items="total_documents" on-data-required="report_view(currentPage)">
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </span>
+    </div>
+  </div>
+</section>

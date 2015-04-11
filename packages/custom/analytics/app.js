@@ -25,6 +25,7 @@ Analytics.register(function(app, auth, database) {
   });
   
   Analytics.aggregateAsset('css', 'analytics.css');
+  Analytics.aggregateAsset('css', 'AdminLTE.css');
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above
