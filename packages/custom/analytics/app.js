@@ -28,7 +28,21 @@ Analytics.register(function(app, auth, database) {
     link: 'Online',
     roles: ['authenticated']
   });
-
+  Analytics.menus.add({
+    title: 'Trending Product',
+    link: 'Trending Product',
+    roles: ['authenticated']
+  });
+  Analytics.menus.add({
+    title: 'Same Product',
+    link: 'Same Product',
+    roles: ['authenticated']
+  });
+  Analytics.menus.add({
+    title: 'Active Cart',
+    link: 'Active Cart',
+    roles: ['authenticated']
+  });
   
   Analytics.aggregateAsset('css', 'analytics.css');
   Analytics.aggregateAsset('css', 'AdminLTE.css');
