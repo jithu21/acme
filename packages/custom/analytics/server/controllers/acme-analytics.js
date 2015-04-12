@@ -4,18 +4,17 @@ var MongoClient = require('mongodb').MongoClient
 var exec = require('exec');
 
 var url = 'mongodb://localhost:27017/acme';
-
-module.exports.geography= function(req, res, next)
-{
-  MongoClient.connect('mongodb://127.0.0.1:27017/acme', function(err, db) {
-    if (err) throw err;
-
-    db.collection('events').aggregate(full_event, function (err, records) {
-      if (err) throw err;
-      res.send("200");
-    });
-  })
+ var get_skip = function(page_size,current_page){
+  var skip = parseInt(page_size) * ( parseInt(current_page) - 1 );
+  return skip;
 };
+
+ var get_limit = function(page_size){
+  var limit = parseInt(page_size);
+  return limit;
+};
+
+
 
 module.exports.insert_one= function(req, res, next)
 {

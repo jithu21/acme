@@ -1,20 +1,27 @@
+
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope"
+      itemtype="http://schema.org/Product">
 {% include '../includes/head.html' %}
 
-<body data-ng-controller="ThemeController" ng-cloak class="ng-cloak" ng-class="state">
-    <div class="navbar navbar-inverse navbar-fixed-top" data-ng-include="'/system/views/header.html'" data-role="navigation"></div>
-    {% if adminEnabled %}
-    <section class="admin-menu">
-        <div data-ng-include="'/mean-admin/views/index.html'"></div>
-    </section>
-    {% endif %}
-    <section class="content">
-        <section class="container">
-            {% block content %}{% endblock %}
-        </section>
-    </section>
-    {% include '../includes/foot.html' %}
+<body data-ng-controller="ThemeController" ng-cloak class="ng-cloak skin-blue" ng-class="state">
+
+<header class="header" data-ng-include="'/system/views/header.html'" data-role="navigation"></header>
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript"> google.load('visualization', '1', {'packages':["corechart", "charteditor"]});
+  </script>
+  <!--aside ng-class="{'collapse-left':isSidebarCollapsed==true}" data-ng-include="'/system/views/sidebar.html'">
+  </aside-->
+  <!--aside class="right-side" ng-class="{'strech':isSidebarCollapsed==true}" data-ui-view -->
+
+  <aside class="right-side" data-ui-view >
+    {% block content %}{% endblock %}
+  </aside>
+</div>
+{% include '../includes/foot.html' %}
 </body>
 
 </html>

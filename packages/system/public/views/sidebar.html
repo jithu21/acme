@@ -1,0 +1,24 @@
+<div class="left-side sidebar-offcanvas" ng-class="{'collapse-left':isSidebarCollapsed==true}">
+  <section class="sidebar" ng-controller="SidebarController">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="/system/assets/img/avatar.png" class="img-circle" alt="User Image"/>
+      </div>
+      <div class="pull-left info">
+        <p>Hello, {{global.user.name}}</p>
+
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li data-ng-repeat="item in menus.main" data-ng-show="global.user" ui-route="/{{item.link}}"
+          ng-class="{active: $uiRoute}">
+        <a mean-token="item.link" ui-sref='{{item.link}}'><i class="fa fa-dashboard"></i>
+          <span>{{item.title}}</span></a>
+      </li>
+    </ul>
+  </section>
+</div>
