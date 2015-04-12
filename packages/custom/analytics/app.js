@@ -23,9 +23,16 @@ Analytics.register(function(app, auth, database) {
     roles: ['authenticated'],
     menu: 'main'
   });
+  Analytics.menus.add({
+    title: 'Online',
+    link: 'Online',
+    roles: ['authenticated']
+  });
+
   
   Analytics.aggregateAsset('css', 'analytics.css');
   Analytics.aggregateAsset('css', 'AdminLTE.css');
+  Analytics.aggregateAsset('css', 'pivot.css');
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above

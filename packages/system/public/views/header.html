@@ -1,39 +1,77 @@
-<div class="page-header" data-ng-controller="HeaderController">
-    <div class="logo pull-left">
-        <a class="navbar-brand" ui-sref="home" mean-token="'site-title'">ACME</a>
-    </div>
+<header ng-app="mean.system" class="header" data-ng-controller="HeaderController" ng-show="global.authenticated">
 
-    <div class="left pull-left">
-        <ul class="navbar-nav nav">
-            <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-                <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
-            </li>
-        </ul>
-    </div>
+  <a href="/" class="logo">
+  </a>
 
-    <div class="account">
-        <div class="text-edit">
-            <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
-            <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
-        </div>
-        <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
-            <li><a ui-sref='auth.register'>Join</a>
-            </li>
-            <li class="divider-vertical"></li>
-            <li><a ui-sref='auth.login'>Log In</a>
-            </li>
-        </ul>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <!--div class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"  data-ng-click="toggleSidebar()">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div-->
 
-        <ul class="navbar-nav nav"  data-ng-show="global.authenticated">
-            <li ng-if="global.user.profile" class="dropdown" mean-profile-menu>x</li>
-            <li ng-if="!global.user.profile" class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    {{global.user.name}} <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="/logout">Log Out</a></li>
-                </ul>
-            </li>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/">Home</a>
+      </li>
+
+      <li data-ng-repeat="item in menus.main" data-ng-show="global.user" ui-route="/{{item.link}}"
+          ng-class="{active: $uiRoute}">
+        <a mean-token="item.link" ui-sref='{{item.link}}'>
+          <span>{{item.title}}</span></a>
+      </li>
+
+      <!--li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="themes">
+          <li><a href="../default/">Default</a></li>
+          <li class="divider"></li>
+          <li><a href="../cerulean/">Cerulean</a></li>
+          <li><a href="../cosmo/">Cosmo</a></li>
         </ul>
+      </li-->
+    </ul>
+
+    <div class="pull-right">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/logout">Sign out</a>
+        </li>
+      </ul>
     </div>
-</div>
+    <!--div class="navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >
+            <i class="glyphicon glyphicon-user"></i>
+            <span>{{global.user.name}} <i class="caret"></i></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="user-header bg-light-blue">
+              <img src="/system/assets/img/avatar.png" class="img-circle" alt="User Image"/>
+
+              <p>
+                {{global.user.name}}
+                <small>Member since Nov. 2012</small>
+              </p>
+            </li>
+            <li class="user-body">
+              <div class="col-xs-12 text-center">
+                Welcome to the Elephant World!
+              </div>
+            </li>
+            <li class="user-footer">
+              <div class="pull-right">
+                <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
+          </ul>
+
+        </li>
+      </ul>
+    </div-->
+  </nav>
+</header>

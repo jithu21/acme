@@ -4,8 +4,9 @@
       "bower_components/build/css/dist.min.css": [
         "bower_components/font-awesome/css/font-awesome.css",
         "bower_components/bootstrap/dist/css/bootstrap.css",
-        "bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css"
-
+        "bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css",
+        "bower_components/tr-ng-grid/trNgGrid.min.css",
+        "bower_components/angular-busy/dist/angular-busy.css"
       ]
     },
     "js": {
@@ -20,7 +21,9 @@
         "bower_components/moment/moment.js",
         "bower_components/web-bootstrap/index.js",
         "bower_components/bootstrap/dist/js/bootstrap.js",
-        "bower_components/bootstrap-daterangepicker/daterangepicker.js"
+        "bower_components/tr-ng-grid/trNgGrid.min.js",
+        "bower_components/bootstrap-daterangepicker/daterangepicker.js",
+        "bower_components/angular-busy/dist/angular-busy.js"
 
       ]
     },

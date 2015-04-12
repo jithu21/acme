@@ -1,0 +1,54 @@
+<section class="content-header" xmlns="http://www.w3.org/1999/html">
+  <h1 mean-token="'home-default'">
+    Users Online List
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Users Online</a></li>
+  </ol>
+</section>
+
+
+<section class="box box-info" data-ng-controller="UsersOnlineController">
+  <div class="box-header with-border">
+    <h3 class="box-title">Users</h3>
+  </div>
+  <!-- /.box-header -->
+
+  <div class="box-body"  data-ng-init="user_usage()" >
+    <div cg-busy="{promise:mask, templateUrl:'/system/views/mask.html',backdrop:true,delay:300,minDuration:1000}"
+         class="box-body no-padding">
+    <div class="table-responsive">
+      <table class="table no-margin">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Date of birth</th>
+          <th>Pincode</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="tenant in totals_table">
+          <td><span class="label label-success"> {{ tenant.name}}</span></td>
+          <td> {{ tenant.email}}</td>
+          <td>{{ tenant.gender }}</td>
+          <td> {{ tenant.dob}}</td>
+          <td> {{ tenant.pincode}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.table-responsive -->
+    </div>
+  </div>
+  <!-- /.box-body -->
+  <div class="row" ng-show="info_data">
+    <div class="col-xs-12">
+      <div class="callout callout-info">
+        <h4> No data found for the selected period</h4>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-footer -->
+</section>
