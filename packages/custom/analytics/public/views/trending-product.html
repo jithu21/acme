@@ -1,0 +1,53 @@
+<section class="content-header" xmlns="http://www.w3.org/1999/html">
+  <h1 mean-token="'home-default'">
+    Trending Products
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Trending Product</a></li>
+  </ol>
+</section>
+
+<section class="content" data-ng-controller="TrendingProduct">
+  <div class="box">
+    <!-- /.box-header -->
+
+    <div class="panel-body">
+      <p align="right">
+        <button class="btn btn-primary btn-sm" name="date_range" id="date_picker" value="date_range">
+          {{date_range}}
+          <i class="fa fa-caret-down"></i>
+        </button>
+      </p>
+
+      <p class="help-block"><i class="fa fa-info-circle"> </i>&nbsp;Popular products location based on the events happened.</p>
+      <div cg-busy="{promise:mask, templateUrl:'/system/views/mask.html',backdrop:true,delay:300,minDuration:1000}"
+           class="box-body no-padding">
+        <table class="table table-bordered">
+          <tr data-ng-repeat="tenant in totals_table">
+            <td align='right' style='background-color: #f4f4f4;font-size: 20px;' ><b>Product Name</b>
+              <div style='font-size:16px;'><b>{{tenant.Name}}</b></div>
+            </td>
+            <td align='right' style='background-color: #f4f4f4;font-size: 20px;'><b>Product Price</b>
+              <div style='font-size:16px;'><span class="badge bg-light-blue">{{tenant.price}}</span></div>
+            </td>
+            <td align='right' style='background-color: #f4f4f4;font-size: 20px;'><b>Categories</b>
+
+              <div style='font-size:16px;'>{{tenant.categories}}</div>
+            </td>
+            <td align='right' style='background-color: #f4f4f4;font-size: 20px;'><b>Brand</b>
+
+              <div style='font-size:16px;'>{{tenant.brand}}</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-show="info_data">
+    <div class="col-xs-12">
+      <div class="callout callout-info">
+        <h4> No data found for the selected period</h4>
+      </div>
+    </div>
+  </div>
+</section>
